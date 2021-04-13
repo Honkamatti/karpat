@@ -1,0 +1,133 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html { width: 100%; height:100%; overflow: scroll; }
+
+body {
+	background: rgb(0, 0, 0);
+	background-image: url("skater_yellow.jpg");
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-size: cover;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	font-family: 'Helvetica';
+	position: center;
+	color:  rgb(256, 256, 256);
+	font-size: 24px;
+	text-align:center;
+	letter-spacing:1.4px;
+}
+
+a {
+	text-decoration: none;
+	color:  rgb(256, 256, 256);
+	font-weight: bold;
+}
+
+.layer {
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	border: none;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.login {
+	position: relative;
+	margin: auto;
+	width: 100%;
+	max-width:400px;
+	z-index: 2;
+}
+
+.login h1 {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(0,0,0,0.05);
+	margin: 0 0 0 0;
+	letter-spacing:1px;
+	text-align:center;
+}
+
+.player_info {
+	background: rgba(0, 0, 0, 0.8);
+	color: rgb(255, 217, 91)
+	padding: 10px;
+}
+
+.table_clarification {
+	background: rgba(0, 0, 0, 0.8);
+	padding: 10px;
+	color: rgba(256, 256, 256, 1);
+	font-size: small;
+	text-align: left;
+	margin: 20px 0 0 0;
+}
+
+button {background-color: rgb(255, 217, 91);
+	position: relative;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 20px;
+	border: none;
+	border-radius: 4px;
+	color: rgb(0, 0, 0);
+	padding: 10px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+button:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+
+input {
+	position: relative;
+	width: 380px;
+	max-width: 80%;
+	margin-bottom: 20px;
+	background: rgba(0,0,0,1);
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: rgb(255, 217, 91);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(255, 217, 91, 1);
+	border-radius: 4px;
+}
+
+table {
+	position: relative;
+	width: 100%;
+	background: rgba(0,0,0,0.3);
+	border: none;
+	border-collapse: collapse;
+	margin: auto;
+	margin-top: 20px;
+	font-size: 13px;
+	color: white;
+}
+
+th {
+	background: rgba(0, 0, 0, 1);
+	color: rgba(255, 217, 91, 1);
+	padding: 5px;
+}
+
+td {
+	padding: 3px;
+}
+
+tr:nth-child(even) {
+	background: rgba(20, 20, 20, 1);
+	color: rgba(256, 256, 256);
+}
+tr:nth-child(odd) {
+	background: rgba(0, 0, 0, 1);
+	color: rgba(256, 256, 256, 1);
+}

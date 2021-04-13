@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelaaja-analyysi</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_karpat_1.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='karpat_logo_square.png')}}"
+          style="object-fit: cover">
+</head>
+
+<body>
+    <div class="layer">
+        <a href="/">
+            <img src="{{url_for('static', filename='karpat_logo.png')}}" alt="team-logo"
+                 style="float:left;width:250px;max-width:35%;margin-top:20px;margin-left:10px">
+        </a>
+    <div class="login">
+        <a href="/"><h1>Pelaaja-analyysi</h1></a>
+        <br>
+        <form action="{{ url_for('send')}}" method="post">
+            <input type="text" name="jotain" placeholder="Etunimi Sukunimi (esim. Sebastian Aho)" required="required" />
+            <button type="submit">Anna piste-ennuste</button>
+        </form>
+        {% if error or errormessages or players %}
+            <div class="player_info">
+                {% if error %}
+                    {{ error }}
+                {% endif %}
+                {% for item in errormessages %}
+                    {{ item }} <br> <br>
+                {% endfor %}
+                {% for row in players %}
+                    {{ name_label }} <a href="{{ eplink }}" target="_blank">{{ true_name }}</a> <br>
+                    {{ age }} <br>
+                    {{ prediction }} <br>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <table>
+           <tr>
+               {% for header in headings %}
+                 <th>{{header}}</th>
+               {% endfor %}
+           </tr>
+           {% for row in data %}
+             <tr>
+               {% for cell in row %}
+                 <td>{{cell}}</td>
+               {% endfor %}
+             </tr>
+           {% endfor %}
+        </table>
+        {% for clarification in tables %}
+            <div class="table_clarification">
+                Taulukossa on pelaajan pistehistoria viiden vuoden ajalta, tuoreimmasta vanhimpaan.<br>
+                <ul>
+                    <li><b>GP: </b> Pelatut ottelut</li>
+                    <li><b>PPG: </b> Tehopisteet per peli</li>
+                    <li><b>GPG: </b> Maalit per peli</li>
+                    <li><b>APG: </b> Syötöt per peli</li>
+                    <li><b>League: </b> Pelaajan liigan taso suhteessa SM-liigaan - lukema näyttää odotetun pistekonversion
+                    keskimääräisen pelaajan tapauksessa.</li>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+</body>
+</html>
